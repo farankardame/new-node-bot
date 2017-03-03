@@ -263,12 +263,12 @@ function receivedMessage(event) {
 	if(messageText.toUpperCase().startsWith("When is my next JSA Payment".toUpperCase())){		 
 		sendTextMessage(senderID, "Please provide your National Insurance number");
 	}
-	else if(messageText.toUpperCase().startsWith("my national insurance number is".toUpperCase())){
+	else if((messageText.toUpperCase().startsWith("my national insurance number is".toUpperCase())) || (messageText.toUpperCase().startsWith("my nino is".toUpperCase()))){
 		custNino = messageText.slice(messageText.lastIndexOf(' ') + 1);
 		console.log("Nino Before " +custNino);
 		sendTextMessage(senderID, "Please confirm your date of birth for example 20-08-1990");
 	}
-	else if(messageText.toUpperCase().startsWith("my date of birth is".toUpperCase())){
+	else if((messageText.toUpperCase().startsWith("my date of birth is".toUpperCase())) || (messageText.toUpperCase().startsWith("my dob is".toUpperCase()))){
 		custDob = messageText.slice(messageText.lastIndexOf(' ') + 1);
 		console.log("Nino after " +custNino + "DOB " + custDob);
 		askDobQuestion(senderID,custNino,custDob);
