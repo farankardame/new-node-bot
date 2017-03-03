@@ -260,15 +260,15 @@ function receivedMessage(event) {
 	
 	console.log(messageText);
 	
-	if(messageText.startsWith("When is my next JSA Payment", "i")){		 
+	if(messageText.toUpperCase().startsWith("When is my next JSA Payment".toUpperCase())){		 
 		sendTextMessage(senderID, "Please provide your National Insurance number");
 	}
-	else if(messageText.startsWith("my national insurance number is", "i")){
+	else if(messageText..toUpperCase().startsWith("my national insurance number is".toUpperCase())){
 		custNino = messageText.slice(messageText.lastIndexOf(' ') + 1);
 		console.log("Nino Before " +custNino);
 		sendTextMessage(senderID, "Please confirm your date of birth for example 20-08-1990");
 	}
-	else if(messageText.startsWith("my date of birth is", "i")){
+	else if(messageText..toUpperCase().startsWith("my date of birth is".toUpperCase())){
 		custDob = messageText.slice(messageText.lastIndexOf(' ') + 1);
 		console.log("Nino after " +custNino + "DOB " + custDob);
 		askDobQuestion(senderID,custNino,custDob);
